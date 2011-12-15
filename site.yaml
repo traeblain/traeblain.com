@@ -41,7 +41,7 @@ meta:
     disqus: traeblain
     analytics: UA-8704728-2
 less:
-  app: /home/traebla1/node_modules/less/bin/lessc
+  app: lessc
 markdown:
     extensions:
         - codehilite
