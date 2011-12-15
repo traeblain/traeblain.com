@@ -1,0 +1,13 @@
+#searchtext {
+    width: 120px !important;
+}
+.sub_head {
+    white-space: no-wrap !important;
+    width: 428px !important;
+}
+body.home li a.feed {
+    display: block !important;
+    width: 100%;
+    background-color: #fff;
+    line-height: 22px;
+}
