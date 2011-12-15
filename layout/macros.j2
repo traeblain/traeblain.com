@@ -1,0 +1,69 @@
+{% macro render_excerpt(res, class=None) %}
+{% refer to res.url as post %}
+<article class="post{% if res.meta.tags %}{% for tag in res.meta.tags %} {{ tag }}{% endfor %}{% endif %}">
+<h1><a href="{{ content_url(res.url) }}">{{ res.meta.title }}</a></h1>
+<time datetime="{{ res.meta.created.strftime('%Y-%m-%dT%H:%M:%SZ') }}" class="time">
+    {{ res.meta.created.strftime('%A, %b %d, %Y') }}
+</time>
+{% if res.meta.tags %}
+<ul class="tags clear">
+{% for tag in res.meta.tags %}
+<li>
+    <a class="small" href="{{ content_url('tags/'~tag~'.html') }}">
+        <span class="quo">&laquo;</span> {{ tag }} <span class="quo">&raquo;</span>
+    </a>
+</li>
+{% endfor %}
+</ul>
+{% endif %}
+<!-- <a href="{{ content_url(res.url) }}">{{ post.image|markdown|typogrify }}</a> -->
+<!-- {{ post.excerpt|markdown|typogrify }} -->
+</article>
+{% endmacro %}
+
+{% macro render_nav(menu, cls=None) -%}
+{% if menu -%}
+<nav {{'class="'~cls if cls }}">
+    <ul>
+        <li class="menu_title"><a href="http://traeblain.com/" class="title_head"><span>Trae </span>Blain</a></li>
+        {% for item in menu -%}
+        {% set active = False -%}
+        {% if item.type == 'page' -%}
+            {% set active = (resource.url ==
+                site.content.resource_from_relative_path(item.url).url) -%}
+        {% else -%}
+            {% set active = (node ==
+                site.content.node_from_relative_path(item.url)) -%}
+        {%- endif %}
+        {% set classes = ['button', 'black'] -%}
+        {% do classes.append('active') if active -%}
+        {% do classes.append(item.css_class) if item.css_class -%}
+        <li>
+            <a title="{{ item.description }}"
+                class="{{ classes|join(' ') }}"
+                href="{{ content_url(item.url) }}">
+                {{ item.name }}
+            </a>
+        </li>
+        {%- endfor %}
+        <li class="search-link"><img src="{{ media_url('/media/images/search-icon.svg') }}" alt="Search" width="18px" height="18px" /></li>
+    </ul>
+</nav>
+{%- endif %}
+{%- endmacro %}
+
+{% macro render_comments(res, cls=None) -%}
+{% if resource.meta.comments -%}
+<div id="disqus_thread"></div>
+<script type="text/javascript">
+    var disqus_shortname = '{{ resource.meta.disqus }}';
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">blog comments powered by <span class="logo-disqus">Disqus</span></a>
+{%- endif %}
+{%- endmacro %}

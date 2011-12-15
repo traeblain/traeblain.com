@@ -1,0 +1,11 @@
+# Use PHP5 as default
+AddHandler application/x-httpd-php5 .php
+RedirectMatch ^/\+(.*)$ http://plus.google.com/114874491434409507754$1
+RedirectMatch ^/@(.*)$ http://twitter.com/traeblain$1
+
+RewriteEngine on
+Options +FollowSymLinks
+
+RewriteCond %{HTTP_HOST} localhost
+RewriteRule ^(.*)$ /blog/home/$1 [NC]
+RewriteRule ^/blog/home/media/(.*)$ /blog/media/$1 [NC,L]

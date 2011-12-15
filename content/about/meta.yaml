@@ -1,0 +1,6 @@
+extends: blog.j2
+default_block: main
+listable: false
+area: about
+id: about
+comments: false

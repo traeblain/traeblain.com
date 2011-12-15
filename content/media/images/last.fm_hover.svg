@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   version="1.1"
+   width="100"
+   height="100"
+   viewBox="0 0 100 100"
+   id="Icons"
+   xml:space="preserve"><metadata
+   id="metadata3817"><rdf:RDF><cc:Work
+       rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
+         rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></metadata><defs
+   id="defs3815" />
+<path
+   d="M 77.033,76.691 C 67.659,76.653 62.664,72.037 59.192,63.904 L 58.203,61.684 49.641,42.04 C 46.806,35.086 39.76,30.388 31.814,30.388 c -10.752,0 -19.475,8.783 -19.475,19.615 0,10.833 8.723,19.616 19.475,19.616 7.5,0 14.026,-4.27 17.278,-10.531 l 3.464,8.038 C 47.642,73.159 40.171,77 31.813,77 17.005,77 5,64.921 5,50.003 5,35.094 17.005,23 31.813,23 c 11.178,0 20.201,6.009 24.785,16.658 0.352,0.826 4.849,11.423 8.775,20.441 2.432,5.583 4.503,9.284 11.228,9.513 6.606,0.228 11.14,-3.82 11.14,-8.938 0,-5 -3.457,-6.202 -9.294,-8.156 -10.488,-3.48 -15.908,-6.976 -15.908,-15.353 0,-8.171 5.521,-13.62 14.494,-13.62 5.846,0 10.063,2.618 12.985,7.838 l -5.734,2.949 c -2.161,-3.045 -4.541,-4.247 -7.572,-4.247 -4.213,0 -7.215,2.949 -7.215,6.872 0,5.568 4.943,6.409 11.865,8.695 9.31,3.054 13.638,6.541 13.638,15.25 0,9.145 -7.793,15.804 -17.967,15.789 z"
+   id="last.fm"
+   style="fill:#cc0000;fill-opacity:1" />
+</svg>

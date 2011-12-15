@@ -1,0 +1,25 @@
+---
+extends: false
+---
+
+RewriteEngine on
+RewriteCond %{HTTP_USER_AGENT} !(FeedBurner|FeedValidator) [NC]
+RewriteRule ^atom\.xml$ http://feeds.feedburner.com/traeblaincom [R=302,L]
+
+RewriteBase /
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{THE_REQUEST} ^GET\ /[^?\s]+\.html
+RewriteRule (.*)\.html$ /$1/ [L,R=301]
+
+RewriteRule ^feed/?$ /atom\.xml [L,R=301]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule (.*)/$ $1.html [L]
+
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule .*[^/]$ $0/ [L,R=301]
+
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_URI} !(\.[a-zA-Z0-9]{1,5}|/)$
+RewriteRule (.*)$ /$1/ [L,R=301]

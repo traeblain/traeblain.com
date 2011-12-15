@@ -1,0 +1,6 @@
+===
+title: Trae Blain's Blog (Excerpts)
+extends: atom.j2
+excerpts_only: true
+listable: false
+===

@@ -1,0 +1,10 @@
+---
+extends: false
+listable: false
+
+---
+
+{% set tag = site.tagger.tags['espn'] %}
+{% set source = site.content.node_from_relative_path('') %}
+{% set walker = source.walk_resources_tagged_with_espn %}
+{% extends "tagged_posts.j2" %}
