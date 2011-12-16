@@ -14,6 +14,10 @@
 	{% block css %}
   <link rel="stylesheet" href="{{ media_url('css/reset.css') }}">
   <link rel="stylesheet" type="text/css" href="{{ media_url('css/site.css') }}">
+  {% if not site.config.mode == "production" -%}
+    <link rel="stylesheet" type="text/less" href="{{ media_url('css/site.less') }}">
+    <script src="{{ media_url('js/libs/less.js') }}"></script>
+  {%- endif %}
   <!--[if IE]>
         <link rel="stylesheet" type="text/css" href="{{ media_url('css/ie.css') }}" />
   <![endif]-->
