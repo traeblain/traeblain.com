@@ -12,6 +12,7 @@ plugins:
     - hyde.ext.plugins.less.LessCSSPlugin
     - hyde.ext.plugins.textlinks.TextlinksPlugin
     - hyde.ext.plugins.urls.UrlCleanerPlugin
+    - hyde.ext.plugins.paginator.PaginatorPlugin
 context:
     data:
         tweet_via: traeblain
