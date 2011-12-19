@@ -2,7 +2,4 @@
 title: Trae Blain's Blog
 extends: atom.j2
 listable: false
-paginator:
-  sorter: time
-  size: 5
 ===
