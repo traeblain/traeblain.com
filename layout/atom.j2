@@ -19,7 +19,7 @@
 
     <id>http://blog.traeblain.com{{ content_url(resource.url) }}</id>
 
-    {% for res in resource.page.posts %}
+    {% for res in resource.node.walk_resources_sorted_by_time() %}
         <entry>
             <title type="html">{{ res.meta.title }}</title>
             <author><name>{{ res.meta.author }}</name></author>
