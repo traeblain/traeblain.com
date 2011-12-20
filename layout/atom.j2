@@ -45,5 +45,6 @@
                 {%- endfilter %}
             </content>
         </entry>
+    {% if loop.index > 5 %} {% break %} {% endif %} 
     {% endfor %}
 </feed>
