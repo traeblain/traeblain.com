@@ -1,3 +1,6 @@
+# 404 Error Handler
+ErrorDocument 404 /blog/404.html
+
 # Use PHP5 as default
 AddHandler application/x-httpd-php5 .php
 
