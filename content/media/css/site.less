@@ -484,17 +484,17 @@ pre {
   }
 }
 
-body.blog {
+body.index {
   article {
     .grid_10;
     position: relative;
-    max-height: 30px;
+    max-height: 35px;
     &:first-child {
       margin-top: 30px;
     }
     h1 {
       font-size: @textheight * 1.2;
-      line-height: @textheight * 1.2;
+      line-height: @textheight * 1.75;
       border-bottom: none;
       .grid_6;
       padding: 0;
@@ -505,6 +505,8 @@ body.blog {
       z-index: 10;
       text-overflow: ellipsis-word;
       white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
     }
     time {
       font-size: @textheight - 4;
@@ -522,10 +524,10 @@ body.blog {
       text-align: right;
       padding: 0;
       opacity: 0;
-      height: @textheight - 6;
+      height: @textheight - 1;
       position: absolute;
       z-index: 9;
-      top: @textheight - 1;
+      top: @textheight;
       li {
         display: inline-block;
         a {
@@ -581,6 +583,45 @@ body.about {
     margin-top: 5px;
   }
 }
+
+/* Page Links */
+.nextlist, .prevlist {
+  display: block;
+  text-shadow: @tcolor 1px 1px 2px;
+  font-size: @textheight * 1.5;
+  font-family: @arimo;
+}
+.nextlist {
+  float: right;
+  margin: 20px @columnWidth 0 0;
+}
+.prevlist {
+  float: left;
+  margin: 20px 0 0 @columnWidth;
+}
+a.dynload {
+  float: none;
+  .grid_8;  
+  text-align: center;
+  padding: 6px 0;
+  font-size: @textheight;
+  margin: 10px auto 0;
+  border: 2px solid @pcolor;
+  border-radius: 12px;
+  &:hover {
+    border: 2px solid @bcolor;
+  }
+}
+.addon {
+  .grid_8;
+  margin: 10px auto 0;
+  text-align: center;
+  font-size: @textheight * 1.5;
+  color: @tcolor;
+  border-top: 1px dotted @tcolor;
+  padding: 10px 0;
+}
+
 
 /* Footer */
 footer {
