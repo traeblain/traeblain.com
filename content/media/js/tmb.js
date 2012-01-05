@@ -67,3 +67,30 @@ $(function() {
   $(window).scroll(title_appear);
   title_appear();
 });
+
+var pageNum = 2;
+
+$(function() {
+  $('.nextlist').text('Show More Posts');
+  $('.nextlist').addClass('dynload');
+  $('section').delegate('.nextlist', 'click', function() {
+    var toLoad = $(this).attr('href')+ ' #main article';
+    pageNum++;
+    var divName = 'page' + pageNum;
+    $('.nextlist').remove();
+    $('.clearall').remove();
+    $('#main').append('<div id="' + divName + '" class="addon">...One Moment Please...</div>');
+     $('#' + divName).load(toLoad, function(response, status, xhr) {
+       if (status == "error") {
+         $('.addon').text('No More Posts...Don\'t Hate Me...');
+         $('#main').append('<div class="clearall"></div>');         
+       } else {
+         $('#main').append('<a class="nextlist dynload" href="/page' + pageNum + '/">Show More Posts</a>');
+         $('#main').append('<div class="clearall"></div>');
+         $('#' + divName + ' article').unwrap();
+         $('time').timeago();
+       }
+     });
+    return false;
+  });
+});
