@@ -7,6 +7,9 @@ RewriteCond %{HTTP_USER_AGENT} !(FeedBurner|FeedValidator) [NC]
 RewriteRule ^atom\.xml$ http://feeds.feedburner.com/traeblaincom [R=302,L]
 
 RewriteBase /
+RewriteCond %{THE_REQUEST} \/index.html\ HTTP [NC]
+RewriteRule (.*)index.html$ /$1 [L,R=301]
+
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{THE_REQUEST} ^GET\ /[^?\s]+\.html
 RewriteRule (.*)\.html$ /$1/ [L,R=301]
@@ -23,5 +26,6 @@ RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_URI} !(\.[a-zA-Z0-9]{1,5}|/)$
 RewriteRule (.*)$ /$1/ [L,R=301]
+
 
 ErrorDocument 404 /404.html

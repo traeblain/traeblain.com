@@ -73,6 +73,7 @@ var pageNum = 2;
 $(function() {
   $('.nextlist').text('Show More Posts');
   $('.nextlist').addClass('dynload');
+  $('.prevlist').remove();
   $('section').delegate('.nextlist', 'click', function() {
     var toLoad = $(this).attr('href')+ ' #main article';
     pageNum++;
