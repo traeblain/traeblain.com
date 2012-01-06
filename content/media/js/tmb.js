@@ -30,10 +30,7 @@ $( function () {
   }
 });
 
-
-$(document).ready(function() {
-  $("time.time").timeago();
-});
+$(function () { $('time.time').timeago(); });
 
 $(function () {
   $("body").html(function(i, html) {
@@ -89,7 +86,7 @@ $(function() {
          $('#main').append('<a class="nextlist dynload" href="/page' + pageNum + '/">Show More Posts</a>');
          $('#main').append('<div class="clearall"></div>');
          $('#' + divName + ' article').unwrap();
-         $('time').timeago();
+         $('time.time').delay(800).timeago();
        }
      });
     return false;
