@@ -83,10 +83,11 @@ $(function() {
          $('.addon').text('No More Posts...Don\'t Hate Me...');
          $('#main').append('<div class="clearall"></div>');         
        } else {
+         $('#' + divName + ' article').unwrap();
          $('#main').append('<a class="nextlist dynload" href="/page' + pageNum + '/">Show More Posts</a>');
          $('#main').append('<div class="clearall"></div>');
-         $('#' + divName + ' article').unwrap();
-         $('time.time').delay(800).timeago();
+         // setTimeout(function() { $('time.time').timeago(); }, 1000);
+         $(document).ready(function() { $('time.time').timeago(); });
        }
      });
     return false;
