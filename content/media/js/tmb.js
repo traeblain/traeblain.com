@@ -86,7 +86,7 @@ $(function() {
          $('#' + divName + ' article').unwrap();
          $('#main').append('<a class="nextlist dynload" href="/page' + pageNum + '/">Show More Posts</a>');
          $('#main').append('<div class="clearall"></div>');
-         // setTimeout(function() { $('time.time').timeago(); }, 800);
+         setTimeout(function() { $('time.time').timeago(); }, 800);
          // $(document).ready(function() { $('time.time').timeago(); });
        }
      });
