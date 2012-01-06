@@ -1,3 +1,5 @@
+var pageNum = 2;
+
 function sticky_relocate() {
   var window_top = $(window).scrollTop() + 50;
   var div_top = $('#main').offset().top;
@@ -30,7 +32,7 @@ $( function () {
   }
 });
 
-$(function () { $('time.time').timeago(); });
+//$(function () { $('time.time').timeago(); });
 
 $(function () {
   $("body").html(function(i, html) {
@@ -65,8 +67,6 @@ $(function() {
   title_appear();
 });
 
-var pageNum = 2;
-
 $(function() {
   $('.nextlist').text('Show More Posts');
   $('.nextlist').addClass('dynload');
@@ -86,10 +86,12 @@ $(function() {
          $('#' + divName + ' article').unwrap();
          $('#main').append('<a class="nextlist dynload" href="/page' + pageNum + '/">Show More Posts</a>');
          $('#main').append('<div class="clearall"></div>');
-         // setTimeout(function() { $('time.time').timeago(); }, 1000);
-         $(document).ready(function() { $('time.time').timeago(); });
+         // setTimeout(function() { $('time.time').timeago(); }, 800);
+         // $(document).ready(function() { $('time.time').timeago(); });
        }
      });
     return false;
   });
 });
+
+$('time.time').livequery(function () { $(this).timeago(); });
