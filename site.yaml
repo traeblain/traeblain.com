@@ -43,6 +43,7 @@ meta:
     disqus: traeblain
     analytics: UA-8704728-2
     docloc: http://blog.traeblain.com
+    charset: iso-8859-1
 less:
   app: lessc
 markdown:

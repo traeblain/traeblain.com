@@ -29,3 +29,30 @@ RewriteRule (.*)$ /$1/ [L,R=301]
 
 
 ErrorDocument 404 /404.html
+
+
+# 480 weeks
+<FilesMatch "\.(ico|pdf|flv|jpg|jpeg|png|gif|swf|svg)$">
+Header set Cache-Control "max-age=290304000, public"
+</FilesMatch>
+
+# 2 weeks
+<FilesMatch "\.(js|txt|css)$">
+Header set Cache-Control "max-age=1209600, must-revalidate"
+</FilesMatch>
+
+# 1 day
+<FilesMatch "\.(xml)$">
+Header set Cache-Control "max-age=86400, must-revalidate"
+</FilesMatch>
+
+# 2 hours
+<FilesMatch "\.(html|htm)$">
+Header set Cache-Control "max-age=7200, must-revalidate"
+</FilesMatch>
+
+<IfModule mod_deflate.c>
+<FilesMatch "\.(js|css|html|htm)$">
+SetOutputFilter DEFLATE
+</FilesMatch>
+</IfModule>

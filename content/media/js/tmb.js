@@ -68,6 +68,7 @@ $(function() {
 });
 
 $(function() {
+  $.ajaxSetup ({ cache: false });
   $('.nextlist').text('Show More Posts');
   $('.nextlist').addClass('dynload');
   $('.prevlist').remove();
