@@ -1,8 +1,4 @@
-if(pageNum) {
- return;
-} else {
- var pageNum = 2;
-}
+if(null == pageNum) { var pageNum = 2; }
 
 function sticky_relocate() {
   var window_top = $(window).scrollTop() + 50;

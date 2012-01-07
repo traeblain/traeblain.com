@@ -46,6 +46,8 @@ meta:
     charset: iso-8859-1
 less:
   app: lessc
+  args:
+    compress: ""
 markdown:
     extensions:
         - codehilite
