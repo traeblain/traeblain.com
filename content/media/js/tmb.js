@@ -1,4 +1,8 @@
-var pageNum = 2;
+if(pageNum) {
+ return;
+} else {
+ var pageNum = 2;
+}
 
 function sticky_relocate() {
   var window_top = $(window).scrollTop() + 50;
@@ -32,7 +36,7 @@ $( function () {
   }
 });
 
-//$(function () { $('time.time').timeago(); });
+$(function () { $('time.time').timeago(); });
 
 $(function () {
   $("body").html(function(i, html) {
@@ -68,31 +72,35 @@ $(function() {
 });
 
 $(function() {
-  $.ajaxSetup ({ cache: false });
   $('.nextlist').text('Show More Posts');
   $('.nextlist').addClass('dynload');
   $('.prevlist').remove();
   $('section').delegate('.nextlist', 'click', function() {
-    var toLoad = $(this).attr('href')+ ' #main article';
-    pageNum++;
+    var toLoadUrl = $(this).attr('href');
+    var toLoad = toLoadUrl + ' #main article';
     var divName = 'page' + pageNum;
     $('.nextlist').remove();
     $('.clearall').remove();
     $('#main').append('<div id="' + divName + '" class="addon">...One Moment Please...</div>');
-     $('#' + divName).load(toLoad, function(response, status, xhr) {
-       if (status == "error") {
-         $('.addon').text('No More Posts...Don\'t Hate Me...');
-         $('#main').append('<div class="clearall"></div>');         
-       } else {
-         $('#' + divName + ' article').unwrap();
-         $('#main').append('<a class="nextlist dynload" href="/page' + pageNum + '/">Show More Posts</a>');
-         $('#main').append('<div class="clearall"></div>');
-         setTimeout(function() { $('time.time').timeago(); }, 800);
-         // $(document).ready(function() { $('time.time').timeago(); });
-       }
-     });
+      $.ajax({
+        type: 'GET',
+        url: toLoadUrl,
+        dataType: 'html',
+        cache: false,
+        success : function(data){
+          var jqObj = $('<html />').html(data);
+          $('#main').append( jqObj.find('section#main article') );
+          pageNum++;
+          $('#main').append('<a class="nextlist dynload" href="/page' + pageNum + '/">Show More Posts</a>');
+          $('#main').append('<div class="clearall"></div>');
+          $('.addon').remove();
+          $('time.time').timeago();
+        },
+        error : function(response, status, xhr){
+          $('.addon').text('No More Posts...Don\'t Hate Me...');
+          $('#main').append('<div class="clearall"></div>');
+        }
+      });
     return false;
   });
 });
-
-$('time.time').livequery(function () { $(this).timeago(); });
