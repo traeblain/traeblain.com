@@ -1,6 +1,7 @@
 ---
 extends: false
 ---
+AddDefaultCharset UTF-8
 
 RewriteEngine on
 RewriteCond %{HTTP_USER_AGENT} !(FeedBurner|FeedValidator) [NC]

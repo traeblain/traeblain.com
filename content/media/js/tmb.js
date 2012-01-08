@@ -1,4 +1,5 @@
 if(null == pageNum) { var pageNum = 2; }
+jQuery.ajaxSetup({'cache': true});
 
 function sticky_relocate() {
   var window_top = $(window).scrollTop() + 50;
