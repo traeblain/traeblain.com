@@ -29,7 +29,7 @@
 .gridWidth (@theColumn: 1) {
   width: (@columnWidth * @theColumn) + (@gutter * ((@theColumn - 1) * 2));
 }
-@sbwidth: 18px;
+@sbwidth: 22px;
 @stwidth: (@columnWidth * 2.5) + (@gutter * ((2.5 - 1) * 2)) - @sbwidth - 2;
 
 .grid_1 { .gridWidth(1); }
@@ -44,6 +44,19 @@
 .grid_10 { .gridWidth(10); }
 .grid_11 { .gridWidth(11); }
 .grid_12 { .gridWidth(12); }
+
+/* Font Setuo */
+@font-face {
+  font-family: 'TraeGlyphs';
+  src: url('/media/font/webfont-TraeGlyphs.eot');
+  src: url('/media/font/webfont-TraeGlyphs.eot?#iefix') format('embedded-opentype'),
+       url('/media/font/webfont-TraeGlyphs.woff') format('woff'),
+       url('/media/font/webfont-TraeGlyphs.ttf') format('truetype'),
+       url('/media/font/webfont-TraeGlyphs.svgz#TraeGlyphs') format('svg'),
+       url('/media/font/webfont-TraeGlyphs.svg#TraeGlyphs') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
 
 /* Structure */
 html {
@@ -116,6 +129,9 @@ em, i {
 .clearall {
   clear: both;
   height: 30px;
+}
+.traefont {
+  font-family: 'TraeGlyphs';
 }
 
 /* Links */
@@ -469,6 +485,8 @@ pre {
 }
 #searchbox input {
   border: 1px solid @pcolor;
+  font-size: @textheight;
+  line-height: 20px;
   &#searchtext {
     border-right: none;
     width: @stwidth;
@@ -478,9 +496,11 @@ pre {
     }
   }
   &#searchbutton {
-    background:  url("/media/images/search-icon.svg") no-repeat scroll left center;
     width: @sbwidth;
     border-left: none;
+    font-weight: bold;
+    color: @pcolor;
+    vertical-align: bottom;
   }
 }
 
@@ -817,3 +837,91 @@ body.home {
   }
 
 
+/* Social Abouts */
+
+.social {
+  div a span {
+    color: #444;
+  }
+  span {
+    font-size: 48px;
+    vertical-align: middle;
+    line-height: 50px;
+    span {
+      display: none;
+    }
+  }
+  .twitter a:hover span {
+    color: #9AE4E8;
+  }
+  .facebook a:hover span {
+    color: #3B5998;
+  }
+  .googleplus a:hover span.hov {
+    color: #B02F20;
+  }
+  .googleplus span.plus {
+    font-size: @textheight;
+  }
+  .googleplus a:hover span.plus {
+    color: @scolor;
+  }
+  .pathto a:hover span {
+    color: #000;
+  }
+  .delicious a:hover span {
+    color: #000;
+    letter-spacing: -45px;
+    span {
+      display: inline;
+      vertical-align: bottom;
+      font-size: 42px;
+    }
+    span.del1 {
+      color: #CCC;
+    }
+    span.del2 {
+      color: #407ACC;
+      letter-spacing: 3px;
+    }
+  }
+  .lastfm a:hover span {
+    color: #C90E13;
+  }
+  .goodreads a:hover span {
+    color: #684737;
+  }
+  .youtube a:hover span {
+    color: #890406;
+    letter-spacing: -50px;
+    span.yt {
+      display: inline;
+      color: #000;
+      letter-spacing: 0;
+      vertical-align: top;
+    }
+  }
+  .flickr a:hover span {
+    color: #ff0084;
+    letter-spacing: -50px;
+    span.fkr {
+      display: inline;
+      letter-spacing: 0;
+      color: #0063dc;
+      vertical-align: top;
+    }
+  }
+  .garmin a:hover span {
+    color: #245b94;
+  }
+  .amazon a:hover span {
+    color: orange;
+    letter-spacing: -50px;
+    span.amz {
+      display: inline;
+      color: #000;
+      letter-spacing: 0;
+      vertical-align: baseline;
+    }
+  }
+}
