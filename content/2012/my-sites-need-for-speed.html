@@ -16,15 +16,15 @@ Speed... Website speed it kind of a buzz word these days and I decided to jump i
 
 ### Smaller Main Page
 
-First thing I did was reduce the size main page. Originally I had all my blog posts put on a single page. Which wasn't that big of a deal, but [Hyde] has a paginator plugin `hyde.ext.plugins.paginator.PaginatorPlugin` that will split the posts up and add a `/page2` etc. for the additional pages. So this reduced the amount of HTML loaded for the main page. [Commit](https://github.com/traeblain/traeblain.com/commit/222757464ce09ebeb5dad3a3a21e68171e798e1d)
+First thing I did was reduce the size main page. Originally I had all my blog posts put on a single page. Which wasn't that big of a deal, but [Hyde][] has a paginator plugin `hyde.ext.plugins.paginator.PaginatorPlugin` that will split the posts up and add a `/page2` etc. for the additional pages. So this reduced the amount of HTML loaded for the main page. [Commit](https://github.com/traeblain/traeblain.com/commit/222757464ce09ebeb5dad3a3a21e68171e798e1d)
 
-This isn't exactly a speed improvement, but I like what I did. I also used a [jQuery] ajax call to dynamically load the additional pages. Instead of clicking the provided "Page 2" link, you can just click the "Show More" link and it will load without actually going to the next page. It also will fall-back for non-javascript users to the standard link. I'm pumped how well it worked out.
+This isn't exactly a speed improvement, but I like what I did. I also used a [jQuery][] ajax call to dynamically load the additional pages. Instead of clicking the provided "Page 2" link, you can just click the "Show More" link and it will load without actually going to the next page. It also will fall-back for non-javascript users to the standard link. I'm pumped how well it worked out.
 
 ### Uglify | Minify 
 
-One way to improve speed is to compress your CSS and Javascript. This is done by Minifying the CSS and Uglifying the Javascript. Basically it gets rid of the indentation and comments that help readability of the scripts. For the Javascripts, I used [Hyde]'s Uglify plugin `hyde.ext.plugins.uglify.UglifyPlugin` that compressed my Javascripts down quite a bit. Real simple change and a nice boost in speed. [Commit](https://github.com/traeblain/traeblain.com/commit/289223edb55cf17fbadabb72ed7cb6b0b78f8559)
+One way to improve speed is to compress your CSS and Javascript. This is done by Minifying the CSS and Uglifying the Javascript. Basically it gets rid of the indentation and comments that help readability of the scripts. For the Javascripts, I used [Hyde][]'s Uglify plugin `hyde.ext.plugins.uglify.UglifyPlugin` that compressed my Javascripts down quite a bit. Real simple change and a nice boost in speed. [Commit](https://github.com/traeblain/traeblain.com/commit/289223edb55cf17fbadabb72ed7cb6b0b78f8559)
 
-For the CSS I was using [LessCSS] that allows me to use CSS variables and mixins, so I wasn't sure if I could Minify the CSS. Sure enough, LessCSS has a compression argument that will do just that. After figuring out how to get it to work with [Hyde], I have a compressed CSS for speed. [Commit](https://github.com/traeblain/traeblain.com/commit/52504bb034e48c6676ef682d16c18cc9e00e2e24#L3R49)
+For the CSS I was using [LessCSS][] that allows me to use CSS variables and mixins, so I wasn't sure if I could Minify the CSS. Sure enough, LessCSS has a compression argument that will do just that. After figuring out how to get it to work with [Hyde][], I have a compressed CSS for speed. [Commit](https://github.com/traeblain/traeblain.com/commit/52504bb034e48c6676ef682d16c18cc9e00e2e24#L3R49)
 
 ### Server Configurations
 
@@ -82,7 +82,7 @@ First, we have a Cache Validator problem with my [Google Fonts](http://www.googl
 
 Second, I have a "Defer parsing of Javascript" this basically pushes the Javascript to only run at the end of the page load. Where I was able to fix this item, it actually hurt the page load. It actually took longer to load the page when the parsing was defered...but it still hurts my score.
 
-Third, it recommends Minifying the HTML as well. I could do this, but I'm not sure if [Hyde] has a plugin or way to do this during processing. If it doesn't, then it's no big deal. It says it could save 8.1k. It also incorrectly asks to Uglify a Javascript I have. It's already Uglified, but there is Copyright data that I haven't removed which makes the PageSpeed plugin think it's not.
+Third, it recommends Minifying the HTML as well. I could do this, but I'm not sure if [Hyde][] has a plugin or way to do this during processing. If it doesn't, then it's no big deal. It says it could save 8.1k. It also incorrectly asks to Uglify a Javascript I have. It's already Uglified, but there is Copyright data that I haven't removed which makes the PageSpeed plugin think it's not.
 
 Finally, It suggests removing unused CSS which I'm not going to do. And using efficient CSS selectors that I'm not going to modify because of CSSLess.
 
