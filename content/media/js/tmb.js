@@ -76,6 +76,7 @@ $(function() {
     var toLoadUrl = $(this).attr('href');
     var toLoad = toLoadUrl + ' #main article';
     var divName = 'page' + pageNum;
+    var pathname = window.location.pathname;
     $('.nextlist').remove();
     $('.clearall').remove();
     $('#main').append('<div id="' + divName + '" class="addon">...One Moment Please...</div>');
@@ -88,7 +89,7 @@ $(function() {
           var jqObj = $('<html />').html(data);
           $('#main').append( jqObj.find('section#main article') );
           pageNum++;
-          $('#main').append('<a class="nextlist dynload" href="/page' + pageNum + '/">Show More Posts</a>');
+          $('#main').append('<a class="nextlist dynload" href="' + getPathFromUrl(pathname) + 'page' + pageNum + '/">Show More Posts</a>');
           $('#main').append('<div class="clearall"></div>');
           $('.addon').remove();
           $('time.time').timeago();
@@ -101,3 +102,7 @@ $(function() {
     return false;
   });
 });
+
+function getPathFromUrl(url) {
+  return url.split("?")[0];
+}

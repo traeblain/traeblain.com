@@ -11,7 +11,7 @@
     <!-- <div class="horz">&nbsp;</div> -->
 
 {% endfor %}
-{% if resource.page.previous %}<a class="prevlist" href="/{{ resource.page.previous.resource.url -}}">Newer Posts</a>{% endif %}
-{% if resource.page.next %}<a class="nextlist" href="/{{ resource.page.next.resource.url -}}">Older Posts</a>{% endif %}
+{% if resource.page.previous %}<a class="prevlist" href="{{ resource.base_url }}{{ resource.page.previous.resource.url -}}">Newer Posts</a>{% endif %}
+{% if resource.page.next %}<a class="nextlist" href="{{ resource.base_url }}{{ resource.page.next.resource.url -}}">Older Posts</a>{% endif %}
 <div class="clearall"></div>
 {% endblock %}
