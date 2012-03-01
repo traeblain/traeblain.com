@@ -65,6 +65,11 @@
 {% block post -%}{%- endblock %}
 {%- endmark %}
 {%- endfilter %}
+
+{% if resource.meta.modified %}
+<p class="mod_time">Modified on: '<span class="mod_time_time">{{ resource.meta.modified.strftime('%A, %b %d, %Y at %I:%M %p') }} </span>'</p>
+{% endif %}
+
 </article>
 <div class="clearall"></div>
 
