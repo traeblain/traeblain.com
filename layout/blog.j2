@@ -1,6 +1,29 @@
 {% extends "base.j2" %}
 
 {% block main -%}
+<div id="fb-root" style="width: 0; height: 0; margin: 0; padding: 0;"></div>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '68621441958', // App ID
+      channelUrl : '//traeblain.com/channel.html', // Channel File
+      status     : true, // check login status
+      cookie     : true, // enable cookies to allow the server to access the session
+      xfbml      : true  // parse XFBML
+    });
+
+    // Additional initialization code here
+  };
+
+  // Load the SDK Asynchronously
+  (function(d){
+     var js, id = 'facebook-jssdk', ref = d.getElementsByTagName('script')[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement('script'); js.id = id; js.async = true;
+     js.src = "//connect.facebook.net/en_US/all.js";
+     ref.parentNode.insertBefore(js, ref);
+   }(document));
+</script>
 <article class="post">
 <nav class="post_nav">
 <a class="prev{{' disabled' if not resource.prev_by_time }}"
@@ -30,11 +53,7 @@
         src="http://platform.twitter.com/widgets.js"></script>
 </div>
 <div id="facebook_like">
-<iframe src="http://www.facebook.com/plugins/like.php?href&amp;layout=box_count&amp;show_faces=false&amp;width=450&amp;action=like&amp;font=arial&amp;colorscheme=light&amp;height=65"
-            scrolling="no"
-            frameborder="0"
-            style="border:none; overflow:hidden; width:450px; height:65px;"
-            allowTransparency="true"></iframe>
+<div class="fb-like" data-send="false" data-layout="box_count" data-width="55" data-show-faces="true" data-font="verdana"></div>
 </div>
 <div class="g-plusone" data-size="tall"></div>
 </aside>
